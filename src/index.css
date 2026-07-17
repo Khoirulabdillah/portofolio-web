@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+/* Animasi mengambang (floating) yang sangat halus */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  /* Durasi 6 detik membuat gerakannya lambat dan elegan */
+  animation: float 6s ease-in-out infinite; 
+}
