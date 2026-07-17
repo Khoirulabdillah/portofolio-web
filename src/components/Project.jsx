@@ -80,11 +80,11 @@ const Project = () => {
         <div className="mt-12 flex justify-center">
           <button 
             onClick={() => setTampilSemua(!tampilSemua)}
-            className="px-8 py-3.5 bg-white border-2 border-gray-200 text-gray-700 font-bold rounded-lg hover:border-blue-600 hover:text-blue-600 hover:shadow-md transition duration-300 flex items-center gap-2 group"
+            /* Tambahan: active:scale-95, active:bg-blue-50, dan select-none */
+            className="px-8 py-3.5 bg-white border-2 border-gray-200 text-gray-700 font-bold rounded-lg hover:border-blue-600 hover:text-blue-600 hover:shadow-md active:scale-95 active:bg-blue-50 transition-all duration-200 flex items-center gap-2 group select-none focus:outline-none"
           >
             {tampilSemua ? "Tampilkan Lebih Sedikit" : "Lihat Semua Proyek"}
             
-            {/* Ikon panah akan berubah arah sesuai state */}
             <svg 
               className={`w-5 h-5 transition-transform duration-300 ${tampilSemua ? 'rotate-180' : 'group-hover:translate-y-1'}`} 
               fill="none" 
