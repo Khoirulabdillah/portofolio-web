@@ -70,7 +70,7 @@ const Hero = () => {
           </a>
           
           <a 
-            href="/cv-khoirul-abdillah.pdf"
+            href="/cv-khoirul abdillah.pdf"
             download="CV_Khoirul_Abdillah.pdf"
             /* Tambahan: active:scale-95 dan select-none */
             className="flex-1 sm:flex-none flex justify-center items-center gap-1.5 sm:gap-2 px-2 sm:px-8 py-3 sm:py-3.5 bg-transparent border-2 border-gray-300 text-gray-700 font-bold rounded-lg hover:border-gray-800 hover:text-gray-900 active:scale-95 active:bg-gray-100 transition-all duration-200 group text-sm sm:text-base whitespace-nowrap select-none"
