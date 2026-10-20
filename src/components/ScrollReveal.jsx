@@ -1,41 +1,34 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const ScrollReveal = ({ children }) => {
+const ScrollReveal = ({ children, stagger = false }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
-    // Membuat pengamat (observer)
+    const element = ref.current;
+    if (!element) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // State isVisible akan otomatis true jika masuk layar, dan false jika keluar layar.
-        // Tidak ada lagi perintah "unobserve", sehingga ini akan bekerja terus-menerus!
         setIsVisible(entry.isIntersecting);
       },
       {
-        threshold: 0.15, // Efek terpicu saat 15% elemen terlihat di layar
+        threshold: 0.05,
+        rootMargin: '0px 0px -8% 0px',
       }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    observer.observe(element);
 
-    // Pembersihan saat komponen dihapus
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
+      observer.unobserve(element);
     };
   }, []);
 
   return (
     <div
       ref={ref}
-      // Animasi transisi yang akan bolak-balik menyesuaikan isVisible
-      className={`transition-all duration-1000 ease-out transform ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-      }`}
+      className={`scroll-reveal${isVisible ? ' is-visible' : ''}${stagger ? ' scroll-reveal--stagger' : ''}`}
     >
       {children}
     </div>

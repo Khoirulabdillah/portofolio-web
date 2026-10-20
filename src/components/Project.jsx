@@ -21,14 +21,14 @@ const Project = () => {
       {/* Grid Cards (Dirender berdasarkan state proyekYangDitampilkan) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {proyekYangDitampilkan.map((proyek) => (
-          <div key={proyek.id} className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group flex flex-col h-full overflow-hidden relative">
+          <div key={proyek.id} className="project-card bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl group flex flex-col h-full overflow-hidden relative">
             
             <div className="w-full h-40 sm:h-48 bg-gray-100 overflow-hidden relative flex-shrink-0">
-              <div className="absolute inset-0 bg-blue-600/10 group-hover:bg-transparent transition-colors duration-300 z-10 pointer-events-none"></div>
+              <div className="project-card-overlay absolute inset-0 bg-blue-600/10 group-hover:bg-transparent z-10 pointer-events-none"></div>
               <img 
                 src={proyek.gambar} 
                 alt={`Screenshot ${proyek.judul}`} 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="project-card-image w-full h-full object-cover"
               />
             </div>
 
@@ -36,7 +36,7 @@ const Project = () => {
               <div className="flex-1">
                 
                 <div className="flex justify-between items-start mb-2 sm:mb-3">
-                  <h4 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                  <h4 className="project-card-title text-lg sm:text-xl font-bold text-gray-900 group-hover:text-blue-600">
                     {proyek.judul}
                   </h4>
                   
@@ -44,10 +44,10 @@ const Project = () => {
                     href={proyek.link} 
                     target="_blank" 
                     rel="noreferrer" 
-                    className="p-2 -mt-1 -mr-2 bg-gray-50 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-full transition-all group/btn"
+                    className="project-card-link p-2 -mt-1 -mr-2 bg-gray-50 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-full group/btn"
                     aria-label={`Lihat detail ${proyek.judul}`}
                   >
-                    <svg className="w-5 h-5 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
                   </a>

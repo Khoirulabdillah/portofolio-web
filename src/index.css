@@ -1,5 +1,293 @@
 @import "tailwindcss";
 
+html {
+  background-color: #f8fafc;
+  color-scheme: light;
+}
+
+html.dark {
+  background-color: #0f172a;
+  color-scheme: dark;
+}
+
+*, *::before, *::after {
+  transition:
+    background-color 350ms ease,
+    border-color 350ms ease,
+    color 350ms ease;
+}
+
+html.dark [class~="bg-white/90"] {
+  background-color: rgb(15 23 42 / 90%);
+}
+
+html.dark [class~="bg-white"] {
+  background-color: #1e293b;
+}
+
+html.dark [class~="bg-slate-50"] {
+  background-color: #111c2e;
+}
+
+html.dark [class~="bg-gray-50"] {
+  background-color: #172033;
+}
+
+html.dark [class~="bg-gray-100"] {
+  background-color: #273449;
+}
+
+html.dark [class~="bg-blue-50"] {
+  background-color: #172c49;
+}
+
+html.dark [class~="bg-green-50"] {
+  background-color: #123329;
+}
+
+html.dark [class~="bg-red-50"] {
+  background-color: #3a2025;
+}
+
+html.dark [class~="bg-pink-50"] {
+  background-color: #3b2035;
+}
+
+html.dark [class~="text-gray-900"] {
+  color: #f1f5f9;
+}
+
+html.dark [class~="text-gray-800"] {
+  color: #e2e8f0;
+}
+
+html.dark [class~="text-gray-700"] {
+  color: #cbd5e1;
+}
+
+html.dark [class~="text-gray-600"] {
+  color: #a8b3c4;
+}
+
+html.dark [class~="text-gray-500"] {
+  color: #94a3b8;
+}
+
+html.dark [class~="text-gray-400"] {
+  color: #94a3b8;
+}
+
+html.dark [class~="text-gray-300"] {
+  color: #94a3b8;
+}
+
+html.dark [class~="border-gray-100"] {
+  border-color: #334155;
+}
+
+html.dark [class~="border-gray-200"] {
+  border-color: #475569;
+}
+
+html.dark [class~="border-gray-300"] {
+  border-color: #64748b;
+}
+
+html.dark [class~="border-t"] {
+  border-color: #334155;
+}
+
+html.dark [class~="border-b"] {
+  border-color: #334155;
+}
+
+html.dark #kontak .contact-method {
+  transition:
+    background-color 350ms ease,
+    border-color 350ms ease,
+    color 350ms ease,
+    box-shadow 350ms ease,
+    transform 200ms ease;
+}
+
+html.dark #kontak .contact-method:hover {
+  background-color: #263449;
+  box-shadow: 0 4px 12px rgb(2 6 23 / 35%);
+}
+
+html.dark #kontak .contact-method-icon,
+html.dark #kontak .contact-method-arrow {
+  transition:
+    background-color 350ms ease,
+    color 350ms ease;
+}
+
+html.dark #kontak .contact-method[data-accent="blue"]:hover {
+  border-color: #60a5fa;
+}
+
+html.dark #kontak .contact-method[data-accent="blue"]:hover .contact-method-icon {
+  background-color: #172c49;
+  color: #60a5fa;
+}
+
+html.dark #kontak .contact-method[data-accent="blue"]:hover .contact-method-arrow {
+  color: #60a5fa;
+}
+
+html.dark #kontak .contact-method[data-accent="green"]:hover {
+  border-color: #34d399;
+}
+
+html.dark #kontak .contact-method[data-accent="green"]:hover .contact-method-icon {
+  background-color: #123329;
+  color: #4ade80;
+}
+
+html.dark #kontak .contact-method[data-accent="green"]:hover .contact-method-arrow {
+  color: #4ade80;
+}
+
+html.dark #kontak .contact-method[data-accent="red"]:hover {
+  border-color: #f87171;
+}
+
+html.dark #kontak .contact-method[data-accent="red"]:hover .contact-method-icon {
+  background-color: #3a2025;
+  color: #f87171;
+}
+
+html.dark #kontak .contact-method[data-accent="red"]:hover .contact-method-arrow {
+  color: #f87171;
+}
+
+html.dark #kontak .contact-method[data-accent="pink"]:hover {
+  border-color: #f472b6;
+}
+
+html.dark #kontak .contact-method[data-accent="pink"]:hover .contact-method-icon {
+  background-color: #3b2035;
+  color: #f472b6;
+}
+
+html.dark #kontak .contact-method[data-accent="pink"]:hover .contact-method-arrow {
+  color: #f472b6;
+}
+
+html.dark #kontak .contact-method[data-accent="gray"]:hover {
+  border-color: #cbd5e1;
+}
+
+html.dark #kontak .contact-method[data-accent="gray"]:hover .contact-method-icon {
+  background-color: #111827;
+  color: #f8fafc;
+}
+
+html.dark #kontak .contact-method[data-accent="gray"]:hover .contact-method-arrow {
+  color: #f1f5f9;
+}
+
+.project-card {
+  transition:
+    background-color 350ms ease,
+    border-color 350ms ease,
+    color 350ms ease,
+    box-shadow 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-card:hover {
+  transform: translateY(-0.25rem);
+}
+
+.project-card-image {
+  transform: scale(1);
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-card:hover .project-card-image {
+  transform: scale(1.05);
+}
+
+.project-card-overlay {
+  transition: background-color 500ms ease-out;
+}
+
+.project-card-title,
+.project-card-link {
+  transition:
+    background-color 300ms ease-out,
+    color 300ms ease-out;
+}
+
+.project-card-link svg {
+  transition: transform 300ms ease-out;
+}
+
+.project-card-link:hover svg {
+  transform: translate(0.125rem, -0.125rem);
+}
+
+.scroll-reveal {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(36px) scale(0.99);
+  transition:
+    opacity 800ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 800ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, filter, transform;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) scale(1);
+  will-change: auto;
+}
+
+.scroll-reveal--stagger.is-visible .project-card {
+  animation: project-card-reveal 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.scroll-reveal--stagger.is-visible .project-card:nth-child(2) {
+  animation-delay: 100ms;
+}
+
+.scroll-reveal--stagger.is-visible .project-card:nth-child(3) {
+  animation-delay: 200ms;
+}
+
+.scroll-reveal--stagger.is-visible .project-card:nth-child(n + 4) {
+  animation-delay: 300ms;
+}
+
+@keyframes project-card-reveal {
+  from {
+    opacity: 0;
+    translate: 0 24px;
+    scale: 0.98;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .scroll-reveal.is-visible,
+  .scroll-reveal--stagger.is-visible .project-card {
+    animation: none;
+    filter: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+}
+
 /* Animasi mengambang (floating) yang sangat halus */
 @keyframes float {
   0% { transform: translateY(0px); }
