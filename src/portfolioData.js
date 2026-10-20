@@ -7,7 +7,8 @@ export const biodata = {
 
 // 2. DATA KEAHLIAN (Digunakan di Keahlian.jsx)
 export const keahlian = [
-  "Laravel", 
+  "Laravel",
+  "System Analyst", 
   "PHP",
   "HTML",
   "CSS", 
