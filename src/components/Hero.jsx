@@ -43,7 +43,7 @@ const Hero = () => {
         <div className="flex items-center gap-4 mb-6">
           <div className="h-[1px] w-12 bg-blue-600"></div>
           <span className="text-sm font-semibold tracking-widest text-blue-600 uppercase">
-            Full-Stack Web Developer
+            Full-Stack Web Developer  & System Analyst
           </span>
         </div>
 
@@ -52,9 +52,8 @@ const Hero = () => {
         </h1>
 
         <p className="text-gray-600 text-lg max-w-xl mb-10 leading-relaxed">
-          Lulusan Teknik Informatika yang analitis, kreatif, dan komunikatif — siap membangun sistem web yang nyata dipakai, bukan sekadar tugas kuliah.
+          Analis Sistem dan Pengembang Web yang analitis. Berpengalaman merancang arsitektur sistem, basis data, dan menguji perangkat lunak untuk menghasilkan solusi bisnis yang nyata dan terstruktur.
         </p>
-
         {/* Kumpulan Tombol */}
         <div className="flex flex-row gap-3 w-full sm:w-auto mt-4">
           
@@ -111,7 +110,7 @@ const Hero = () => {
         >
 
           <div className="flex justify-between items-center text-xs font-mono text-gray-400 mb-6 pointer-events-none">
-            <span>ID / FE-DEV</span>
+            <span>IDV</span>
             <span>2026</span>
           </div>
 
@@ -126,7 +125,7 @@ const Hero = () => {
           <div className="relative pointer-events-none">
             <h3 className="text-2xl font-bold text-gray-900 mb-1">Khoirul Abdillah</h3>
             <p className="text-xs font-mono text-blue-600 mb-6 uppercase tracking-wider">
-             Full-Stack Web Developer
+             Full-Stack Web Developer & System Analyst
             </p>
             
             <div className="pt-4 border-t border-dashed border-gray-300 flex justify-between items-end">

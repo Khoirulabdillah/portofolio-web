@@ -3,23 +3,25 @@ import React, { useState } from 'react';
 const Navbar = ({ isDarkMode, onToggleTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
+  const isProjectPage = window.location.pathname.startsWith('/projects/');
+  const sectionHref = (section) => `${isProjectPage ? '/' : ''}#${section}`;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative">
         
         {/* Logo */}
-        <a href="#" className="text-xl font-bold text-gray-900 tracking-tight hover:text-blue-600 transition">
+        <a href="/" className="text-xl font-bold text-gray-900 tracking-tight hover:text-blue-600 transition">
           KHOIRUL<span className="text-blue-600"> ABDILLAH</span>
         </a>
 
         <div className="flex items-center gap-6">
           {/* Menu Desktop */}
           <ul className="hidden sm:flex gap-8 text-sm font-medium text-gray-600">
-            <li><a href="#profil" className="hover:text-blue-600 transition">Profil</a></li>
-            <li><a href="#keahlian" className="hover:text-blue-600 transition">Keahlian</a></li>
-            <li><a href="#project" className="hover:text-blue-600 transition">Project</a></li>
-            <li><a href="#kontak" className="hover:text-blue-600 transition">Kontak</a></li>
+            <li><a href={sectionHref('profil')} className="hover:text-blue-600 transition">Profil</a></li>
+            <li><a href={sectionHref('keahlian')} className="hover:text-blue-600 transition">Keahlian</a></li>
+            <li><a href={sectionHref('project')} className="hover:text-blue-600 transition">Project</a></li>
+            <li><a href={sectionHref('kontak')} className="hover:text-blue-600 transition">Kontak</a></li>
           </ul>
 
           <button
@@ -75,22 +77,22 @@ const Navbar = ({ isDarkMode, onToggleTheme }) => {
       >
         <ul className="flex flex-col text-base font-medium text-gray-600 px-6 gap-2 py-4">
           <li>
-            <a href="#" onClick={toggleMenu} className="block py-2 hover:text-blue-600 hover:translate-x-1 transition-transform duration-300">
+            <a href={sectionHref('profil')} onClick={toggleMenu} className="block py-2 hover:text-blue-600 hover:translate-x-1 transition-transform duration-300">
               Profil
             </a>
           </li>
           <li>
-            <a href="#keahlian" onClick={toggleMenu} className="block py-2 hover:text-blue-600 hover:translate-x-1 transition-transform duration-300">
+            <a href={sectionHref('keahlian')} onClick={toggleMenu} className="block py-2 hover:text-blue-600 hover:translate-x-1 transition-transform duration-300">
               Keahlian
             </a>
           </li>
           <li>
-            <a href="#project" onClick={toggleMenu} className="block py-2 hover:text-blue-600 hover:translate-x-1 transition-transform duration-300">
-              Proyek
+            <a href={sectionHref('project')} onClick={toggleMenu} className="block py-2 hover:text-blue-600 hover:translate-x-1 transition-transform duration-300">
+              Project
             </a>
           </li>
           <li>
-            <a href="#kontak" onClick={toggleMenu} className="block py-2 hover:text-blue-600 hover:translate-x-1 transition-transform duration-300">
+            <a href={sectionHref('kontak')} onClick={toggleMenu} className="block py-2 hover:text-blue-600 hover:translate-x-1 transition-transform duration-300">
               Kontak
             </a>
           </li>

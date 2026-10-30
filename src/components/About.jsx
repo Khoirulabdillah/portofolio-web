@@ -17,11 +17,8 @@ const About = () => {
         
         {/* Kolom Kiri: Teks Paragraf (Mengambil 7 kolom) */}
         <div className="lg:col-span-7">
-          <p className="text-gray-600 text-lg leading-relaxed mb-6 text-justify">
-            Saya Khoirul Abdillah, seorang Fullstack Web Developer fresh graduate Teknik Informatika dari Universitas Muhammadiyah Surakarta (2026). Berbekal pengalaman magang dan pengalaman membangun beberapa project, saya berfokus menciptakan aplikasi web yang fungsional, berkinerja tinggi, dan production-ready.
-          </p>
           <p className="text-gray-600 text-lg leading-relaxed text-justify">
-            Dengan keahlian utama menggunakan <span className="font-semibold text-gray-800">Laravel, React, MySQL, dan Tailwind CSS, </span>saya mampu menggabungkan logika backend yang kokoh dengan desain frontend yang elegan dan bersih untuk menghadirkan pengalaman digital yang <span className="italic">user-friendly.</span>
+            Saya merupakan lulusan S1 Teknik Informatika Universitas Muhammadiyah Surakarta yang memiliki ketertarikan pada bidang System Analysis dan pengembangan aplikasi web. Memiliki pengalaman dalam mengembangkan PRESENSIKU sebagai proyek skripsi serta ARSIPARIS melalui program magang di Kementerian Agama Kota Surakarta. Saya memiliki pemahaman dalam Requirements Analysis, Business Process Analysis, UML Modeling, Database Design, dan Software Testing. Saya senang mempelajari permasalahan, memahami kebutuhan pengguna, serta menerjemahkannya menjadi solusi sistem yang terstruktur dan efektif.
           </p>
         </div>
 
@@ -42,7 +39,7 @@ const About = () => {
             <span className="text-[10px] font-bold text-gray-400 tracking-widest uppercase mb-1 block group-hover:text-blue-500 transition-colors">
               Fokus Utama
             </span>
-            <h4 className="text-lg font-bold text-gray-900">Fullstack Web Development</h4>
+            <h4 className="text-lg font-bold text-gray-900">Fullstack Web Development & System Analysis</h4>
             
           </div>
 

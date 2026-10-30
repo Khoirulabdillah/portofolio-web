@@ -128,7 +128,7 @@ const Footer = () => {
 
         {/* === COPYRIGHT SECTION === */}
         <div className="text-center pt-8 border-t border-gray-100 text-gray-400 text-sm font-medium">
-          © {new Date().getFullYear()} Khoirul Abdillah. Dibuat dengan React & Tailwind CSS.
+          © {new Date().getFullYear()} Khoirul Abdillah.
         </div>
 
       </div>
