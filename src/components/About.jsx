@@ -39,7 +39,7 @@ const About = () => {
             <span className="text-[10px] font-bold text-gray-400 tracking-widest uppercase mb-1 block group-hover:text-blue-500 transition-colors">
               Fokus Utama
             </span>
-            <h4 className="text-lg font-bold text-gray-900">Fullstack Web Development & System Analysis</h4>
+            <h4 className="text-lg font-bold text-gray-900">Full-stack Web Developer & System Analyst</h4>
             
           </div>
 

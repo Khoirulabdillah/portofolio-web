@@ -39,20 +39,12 @@ const Hero = () => {
       
       {/* === KOLOM KIRI: Teks & Tombol === */}
       <div className="text-left flex flex-col justify-center order-2 lg:order-1 z-10">
-        
-        <div className="flex items-center gap-4 mb-6">
-          <div className="h-[1px] w-12 bg-blue-600"></div>
-          <span className="text-sm font-semibold tracking-widest text-blue-600 uppercase">
-            Full-Stack Web Developer  & System Analyst
-          </span>
-        </div>
-
         <h1 className="text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
           Hi, I'm<span className="text-blue-600"> Khoirul Abdillah</span>
         </h1>
 
         <p className="text-gray-600 text-lg max-w-xl mb-10 leading-relaxed">
-          Analis Sistem dan Pengembang Web yang analitis. Berpengalaman merancang arsitektur sistem, basis data, dan menguji perangkat lunak untuk menghasilkan solusi bisnis yang nyata dan terstruktur.
+          System Analyst dan Full-stack Web Developer yang analitis. Berpengalaman merancang arsitektur sistem, basis data, dan menguji perangkat lunak untuk menghasilkan solusi bisnis yang nyata dan terstruktur.
         </p>
         {/* Kumpulan Tombol */}
         <div className="flex flex-row gap-3 w-full sm:w-auto mt-4">
