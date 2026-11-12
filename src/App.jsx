@@ -34,6 +34,16 @@ function App() {
         : 'Halaman tidak ditemukan | Khoirul Abdillah';
   }, [isHomePage, projectType]);
 
+  useLayoutEffect(() => {
+    if (!isHomePage || window.location.hash !== '#project') return undefined;
+
+    const frameId = window.requestAnimationFrame(() => {
+      document.getElementById('project')?.scrollIntoView({ block: 'start' });
+    });
+
+    return () => window.cancelAnimationFrame(frameId);
+  }, [isHomePage]);
+
   return (
     <div className="bg-slate-50 min-h-screen text-gray-800 font-sans relative pt-20">
       <Navbar
