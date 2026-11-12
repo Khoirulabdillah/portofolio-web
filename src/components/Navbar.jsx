@@ -1,23 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Navbar = ({ isDarkMode, onToggleTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const toggleMenu = () => setIsOpen(!isOpen);
   const isProjectPage = window.location.pathname.startsWith('/projects/');
   const sectionHref = (section) => `${isProjectPage ? '/' : ''}#${section}`;
 
+  useEffect(() => {
+    if (!isOpen) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm transition-colors duration-300">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative">
-        
+    <nav className="fixed inset-x-0 top-3 z-50 px-3 sm:top-5 sm:px-6" aria-label="Navigasi utama">
+      <div className="relative mx-auto flex max-w-6xl items-center justify-between rounded-full border border-gray-100 bg-white/30 px-3 py-2.5 shadow-lg shadow-slate-900/5 backdrop-blur-md transition-colors duration-300 sm:px-5 sm:py-3">
         {/* Logo */}
-        <a href="/" className="text-xl font-bold text-gray-900 tracking-tight hover:text-blue-600 transition">
+        <a href="/" className="min-w-0 truncate text-sm font-bold tracking-tight text-gray-900 transition hover:text-blue-600 sm:text-xl">
           KHOIRUL<span className="text-blue-600"> ABDILLAH</span>
         </a>
 
-        <div className="flex items-center gap-6">
+        <div className="ml-3 flex shrink-0 items-center gap-2 sm:gap-4">
           {/* Menu Desktop */}
-          <ul className="hidden sm:flex gap-8 text-sm font-medium text-gray-600">
+          <ul className="hidden items-center gap-6 text-sm font-medium text-gray-600 md:flex lg:gap-8">
             <li><a href={sectionHref('profil')} className="hover:text-blue-600 transition">Profil</a></li>
             <li><a href={sectionHref('keahlian')} className="hover:text-blue-600 transition">Keahlian</a></li>
             <li><a href={sectionHref('project')} className="hover:text-blue-600 transition">Project</a></li>
@@ -44,55 +55,48 @@ const Navbar = ({ isDarkMode, onToggleTheme }) => {
             )}
           </button>
 
-          {/* Tombol Hamburger Mobile Animasi Kreatif */}
-          <button 
-            onClick={toggleMenu} 
-            className="sm:hidden flex flex-col justify-between w-6 h-4 focus:outline-none group relative z-50"
-            aria-label="Toggle Menu"
+          {/* Floating pill menu on compact screens */}
+          <button
+            type="button"
+            onClick={() => setIsOpen((open) => !open)}
+            className="relative flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 shadow-sm transition-all duration-300 hover:border-blue-300 hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 md:hidden"
+            aria-label={isOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi'}
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
           >
-            {/* Garis Atas */}
-            <span className={`block w-full h-0.5 bg-gray-600 rounded-full transition-all duration-300 ease-in-out origin-center ${
-              isOpen ? 'rotate-45 translate-y-1.5 bg-blue-600' : 'group-hover:bg-blue-600'
-            }`}></span>
-            
-            {/* Garis Tengah (Menghilang ke kanan saat terbuka) */}
-            <span className={`block w-full h-0.5 bg-gray-600 rounded-full transition-all duration-300 ease-in-out ${
-              isOpen ? 'opacity-0 translate-x-3' : 'group-hover:bg-blue-600'
-            }`}></span>
-            
-            {/* Garis Bawah */}
-            <span className={`block w-full h-0.5 bg-gray-600 rounded-full transition-all duration-300 ease-in-out origin-center ${
-              isOpen ? '-rotate-45 -translate-y-1.5 bg-blue-600' : 'group-hover:bg-blue-600'
-            }`}></span>
+            <span className="sr-only">{isOpen ? 'Tutup' : 'Buka'} menu</span>
+            <span className={`absolute h-0.5 w-5 rounded-full bg-current transition-transform duration-300 ${isOpen ? 'rotate-45' : '-translate-y-1.5'}`} />
+            <span className={`absolute h-0.5 w-5 rounded-full bg-current transition-all duration-300 ${isOpen ? 'scale-0 opacity-0' : ''}`} />
+            <span className={`absolute h-0.5 w-5 rounded-full bg-current transition-transform duration-300 ${isOpen ? '-rotate-45' : 'translate-y-1.5'}`} />
           </button>
         </div>
       </div>
 
-      {/* Menu Mobile dengan Transisi Halus */}
-      {/* Kita hilangkan render bersyarat {isOpen && ...} agar efek close animasinya bisa berjalan */}
-      <div 
-        className={`sm:hidden absolute w-full left-0 top-full bg-white border-b border-gray-100 shadow-lg transition-all duration-300 ease-in-out ${
-          isOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-4 invisible'
+      <div
+        id="mobile-navigation"
+        className={`absolute right-3 top-[calc(100%+0.75rem)] w-[min(18rem,calc(100vw-1.5rem))] rounded-3xl border border-gray-100 bg-white p-2 shadow-xl shadow-slate-900/10 transition-all duration-300 ease-out sm:right-6 md:hidden ${
+          isOpen ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-2 opacity-0'
         }`}
+        aria-hidden={!isOpen}
       >
-        <ul className="flex flex-col text-base font-medium text-gray-600 px-6 gap-2 py-4">
+        <ul className="flex flex-col gap-1 text-base font-medium text-gray-600">
           <li>
-            <a href={sectionHref('profil')} onClick={toggleMenu} className="block py-2 hover:text-blue-600 hover:translate-x-1 transition-transform duration-300">
+            <a href={sectionHref('profil')} onClick={() => setIsOpen(false)} className="block rounded-2xl px-4 py-3 transition hover:bg-blue-50 hover:text-blue-600">
               Profil
             </a>
           </li>
           <li>
-            <a href={sectionHref('keahlian')} onClick={toggleMenu} className="block py-2 hover:text-blue-600 hover:translate-x-1 transition-transform duration-300">
+            <a href={sectionHref('keahlian')} onClick={() => setIsOpen(false)} className="block rounded-2xl px-4 py-3 transition hover:bg-blue-50 hover:text-blue-600">
               Keahlian
             </a>
           </li>
           <li>
-            <a href={sectionHref('project')} onClick={toggleMenu} className="block py-2 hover:text-blue-600 hover:translate-x-1 transition-transform duration-300">
+            <a href={sectionHref('project')} onClick={() => setIsOpen(false)} className="block rounded-2xl px-4 py-3 transition hover:bg-blue-50 hover:text-blue-600">
               Project
             </a>
           </li>
           <li>
-            <a href={sectionHref('kontak')} onClick={toggleMenu} className="block py-2 hover:text-blue-600 hover:translate-x-1 transition-transform duration-300">
+            <a href={sectionHref('kontak')} onClick={() => setIsOpen(false)} className="block rounded-2xl px-4 py-3 transition hover:bg-blue-50 hover:text-blue-600">
               Kontak
             </a>
           </li>
